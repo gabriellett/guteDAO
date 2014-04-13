@@ -1,0 +1,23 @@
+<!ELEMENT guteDAO (procedure+)>
+<!ELEMENT procedure (sql+)>
+<!ELEMENT sql (sql-data,param*,requires*)>
+<!ELEMENT param EMPTY>
+<!ELEMENT requires EMPTY>
+<!ELEMENT sql-data (#PCDATA)>
+<!ATTLIST guteDAO 
+	logic-element CDATA #REQUIRED>
+<!ATTLIST procedure
+	type (update|query) #REQUIRED
+	name CDATA #REQUIRED
+>
+<!ATTLIST sql
+	name CDATA #REQUIRED
+	required (true|false) #REQUIRED
+>
+<!ATTLIST param 
+	name CDATA #REQUIRED
+ 	type (VARCHAR|NUMBER|TIMESTAMP|SEQUENCE) #REQUIRED
+ >
+<!ATTLIST requires 
+	qryName CDATA #REQUIRED
+ >

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE guteDAO SYSTEM "guteDAO.dtd">
+<guteDAO logic-element="usuarios">
+
+
+<procedure type="query" name="selectUsers">
+	<sql name="qryPrincipal" required="true">
+		<sql-data>
+			SELECT * FROM USUARIOS
+		</sql-data>
+	</sql>
+	
+	<sql name="where" required="false">
+		<sql-data>
+			WHERE
+		</sql-data>
+		<requires qryName="qryPrincipal"/>
+	</sql>
+	
+	<sql name="filterUser" required="false">
+		<sql-data>
+			ID_USUARIO = ?
+		</sql-data>
+		<param name="ID_USUARIO" type="NUMBER"/>
+		<requires qryName="where"/>
+	</sql>
+</procedure>
+
+</guteDAO>
